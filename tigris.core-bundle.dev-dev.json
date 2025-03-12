@@ -3,7 +3,7 @@
         "tigris/core-bundle": {
             "manifest": {
                 "bundles": {
-                    "Tigris\\CoreBundle": ["all"]
+                    "Tigris\\CoreBundle\\TigrisCoreBundle": ["all"]
                 },
                 "copy-from-recipe": {
                     "config/": "%CONFIG_DIR%/",
