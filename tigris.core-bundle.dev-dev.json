@@ -1,6 +1,6 @@
 {
     "manifests": {
-        "acme/private-bundle": {
+        "tigris/core-bundle": {
             "manifest": {
                 "bundles": {
                     "Tigris\\CoreBundle": ["all"]
