@@ -1,0 +1,8 @@
+{
+    "recipes": {
+        "tigris/core-bundle": [
+            "dev-dev"
+        ]
+    },
+    "branch": "dev"
+}

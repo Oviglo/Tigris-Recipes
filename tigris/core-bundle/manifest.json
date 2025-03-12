@@ -1,0 +1,6 @@
+{
+    "bundles": {
+        "Tigris\\CoreBundle": ["all"]
+    },
+    "ref": "9c4a77a4091de6241b472b680f68ce7489f186d3"
+}
