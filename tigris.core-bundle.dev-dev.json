@@ -18,7 +18,15 @@
                     }
                 ]
             },
-            "ref": "a9140b896eb8d132954c717b8ab958bec7100d0a"
+            "files": {
+                "config/packages/tigris_core.yaml": {
+                    "content": "tigris_core:\n"
+                },
+                "tsconfig.json": {
+                    "content": "{\n                \"compilerOptions\": {\n                    \"target\": \"es6\",\n                    \"module\": \"commonjs\",\n                    \"moduleResolution\": \"node\",\n                    \"sourceMap\": true,\n                    \"outDir\": \"./dist\",\n                    \"baseUrl\": \".\",\n                    \"paths\": {\n                        \"@/*\": [\"src/*\"]\n                    }\n                },\n        \"resolveJsonModule\": true,\n                \"include\": [\"src/**/*\"],\n                \"exclude\": [\"node_modules\",\"vendor\"]\n            }"
+                }
+            },
+            "ref": "ff6ebb19e6573e0a2ef51b39307dbcfbda4f8e39"
         }
     }
 }
