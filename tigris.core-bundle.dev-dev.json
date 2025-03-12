@@ -20,7 +20,8 @@
             },
             "files": {
                 "config/packages/tigris_core.yaml": {
-                    "contents": "tigris_core:\n"
+                    "contents": "tigris_core:\n",
+                    "executable": false
                 },
                 "tsconfig.json": {
                     "contents": [
@@ -46,7 +47,8 @@
                         "        \"vendor\"",
                         "    ]",
                         "}"
-                    ]
+                    ],
+                    "executable": false
                 }
             },
             "ref": "ff6ebb19e6573e0a2ef51b39307dbcfbda4f8e39"
