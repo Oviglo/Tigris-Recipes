@@ -20,10 +20,33 @@
             },
             "files": {
                 "config/packages/tigris_core.yaml": {
-                    "content": "tigris_core:\n"
+                    "contents": "tigris_core:\n"
                 },
                 "tsconfig.json": {
-                    "content": "{\n                \"compilerOptions\": {\n                    \"target\": \"es6\",\n                    \"module\": \"commonjs\",\n                    \"moduleResolution\": \"node\",\n                    \"sourceMap\": true,\n                    \"outDir\": \"./dist\",\n                    \"baseUrl\": \".\",\n                    \"paths\": {\n                        \"@/*\": [\"src/*\"]\n                    }\n                },\n        \"resolveJsonModule\": true,\n                \"include\": [\"src/**/*\"],\n                \"exclude\": [\"node_modules\",\"vendor\"]\n            }"
+                    "contents": [
+                        "{",
+                        "    \"compilerOptions\": {",
+                        "        \"target\": \"es6\",",
+                        "        \"module\": \"commonjs\",",
+                        "        \"outDir\": \"./dist\",",
+                        "        \"strict\": true,",
+                        "        \"esModuleInterop\": true,",
+                        "        \"allowJs\": true,",
+                        "        \"checkJs\": false,",
+                        "        \"skipLibCheck\": true,",
+                        "        \"resolveJsonModule\": true,",
+                        "        \"forceConsistentCasingInFileNames\": true,",
+                        "        \"typeRoots\": [",
+                        "            \"./node_modules/@types\",",
+                        "            \"./@types\"",
+                        "        ]",
+                        "    },",
+                        "    \"exclude\": [",
+                        "        \"node_modules\",",
+                        "        \"vendor\"",
+                        "    ]",
+                        "}"
+                    ]
                 }
             },
             "ref": "ff6ebb19e6573e0a2ef51b39307dbcfbda4f8e39"
