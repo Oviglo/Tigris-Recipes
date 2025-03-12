@@ -4,5 +4,9 @@
             "dev-dev"
         ]
     },
-    "branch": "dev"
+    "branch": "dev",
+    "is_contrib": true,
+    "_links": {
+        "repository": "https://github.com/Oviglo/Tigris-Recipes.git"
+    }
 }

@@ -3,6 +3,15 @@
         "Tigris\\CoreBundle": ["all"]
     },
     "copy-from-recipe": {
-        "config/": "%CONFIG_DIR%/"
-    }
+        "config/": "%CONFIG_DIR%/",
+        "tsconfig.json": "tsconfig.json"
+    },
+    "add-lines": [
+        {
+            "file": "webpack.config.js",
+            "position": "after_target",
+            "target": ".splitEntryChunks()",
+            "content": "    .enableSassLoader()\n    .enableTypeScriptLoader(function(tsConfig) {\n        tsConfig.transpileOnly = true;\n    })\n    .enableVueLoader()"
+        }
+    ]
 }
