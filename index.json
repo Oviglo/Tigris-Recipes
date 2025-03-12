@@ -7,6 +7,7 @@
     "branch": "dev",
     "is_contrib": true,
     "_links": {
-        "repository": "https://github.com/Oviglo/Tigris-Recipes.git"
+        "repository": "https://github.com/Oviglo/Tigris-Recipes.git",
+        "recipe_template": "https://api.github.com/repos/Oviglo/Tigris-Recipes/contents/{package_dotted}.{version}.json"
     }
 }
