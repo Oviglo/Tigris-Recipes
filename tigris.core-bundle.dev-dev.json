@@ -7,7 +7,8 @@
                 },
                 "copy-from-recipe": {
                     "config/": "%CONFIG_DIR%/",
-                    "tsconfig.json": "tsconfig.json"
+                    "tsconfig.json": "tsconfig.json",
+                    "assets/": "%ASSETS_DIR%/"
                 },
                 "add-lines": [
                     {
@@ -15,12 +16,17 @@
                         "position": "after_target",
                         "target": ".splitEntryChunks()",
                         "content": "    .enableSassLoader()\n    .enableTypeScriptLoader(function(tsConfig) {\n        tsConfig.transpileOnly = true;\n    })\n    .enableVueLoader()"
+                    },
+                    {
+                        "file": "%CONFIG_DIR%/routes.yaml",
+                        "position": "bottom",
+                        "content": "tigris_core:\n    resource: \"@TigrisCoreBundle/config/routing.yaml\"\n"
                     }
                 ]
             },
             "files": {
                 "config/packages/tigris_core.yaml": {
-                    "contents": "tigris_core:\n",
+                    "contents": ["tigris_core:\n"],
                     "executable": false
                 },
                 "tsconfig.json": {
@@ -49,9 +55,16 @@
                         "}"
                     ],
                     "executable": false
+                },
+                "assets/back.js": {
+                    "contents": [
+                        "import '../vendor/tigris/core-bundle/assets/scss/back/back.scss';"
+                    ],
+                    "executable": false
                 }
+                
             },
-            "ref": "d3d4b885a1ea1ee7fa21ea5c0c2102671a44c447"
+            "ref": "2b1df7e2313db1ab49424b241da0802e961efa9a"
         }
     }
 }
