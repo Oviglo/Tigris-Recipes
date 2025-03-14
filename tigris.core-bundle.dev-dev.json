@@ -8,7 +8,8 @@
                 "copy-from-recipe": {
                     "config/": "%CONFIG_DIR%/",
                     "tsconfig.json": "tsconfig.json",
-                    "assets/": "%ASSETS_DIR%/"
+                    "assets/": "assets/",
+                    "src/": "src/"
                 },
                 "add-lines": [
                     {
@@ -18,9 +19,39 @@
                         "content": "    .enableSassLoader()\n    .enableTypeScriptLoader(function(tsConfig) {\n        tsConfig.transpileOnly = true;\n    })\n    .enableVueLoader()"
                     },
                     {
+                        "file": "webpack.config.js",
+                        "position": "after_target",
+                        "target": ".addEntry('app', './assets/app.js')",
+                        "content": "    .addEntry('back', './assets/back.js')"
+                    },
+                    {
                         "file": "%CONFIG_DIR%/routes.yaml",
                         "position": "bottom",
                         "content": "tigris_core:\n    resource: \"@TigrisCoreBundle/config/routing.yaml\"\n"
+                    },
+                    {
+                        "file": "%CONFIG_DIR%/packages/security.yaml",
+                        "position": "after_target",
+                        "target": "main:",
+                        "content": "            form_login:\n                check_path: tigris_core_login\n                login_path: tigris_core_login\n            logout:\n                path: tigris_core_logout\n                target: tigris_core_login\n"
+                    },
+                    {
+                        "file": "%CONFIG_DIR%/packages/security.yaml",
+                        "position": "after_target",
+                        "target": "providers:",
+                        "content": "            app_user_provider:\n                class: App\\Entity\\User\n                property: username\n"
+                    },
+                    {
+                        "file": "%CONFIG_DIR%/packages/security.yaml",
+                        "position": "after_target",
+                        "target": "security:",
+                        "content": "    role_hierarchy:\n        ROLE_ADMIN: [ROLE_USER]\n        ROLE_SUPER_ADMIN: [ROLE_ADMIN]\n"
+                    },
+                    {
+                        "file": "%CONFIG_DIR%/packages/api_platform/yaml",
+                        "position": "after_target",
+                        "target": "defaults:",
+                        "content": "        pagination_items_per_page: 30\n        pagination_client_items_per_page: true\n        collection_pagination_maximum_page_size: 100\n"
                     }
                 ]
             },
@@ -58,13 +89,39 @@
                 },
                 "assets/back.js": {
                     "contents": [
-                        "import '../vendor/tigris/core-bundle/assets/scss/back/back.scss';"
+                        "import './scss/back/back.scss';\n",
+                        "import '../vendor/tigris/core-bundle/assets/ts/back/back.ts';\n"
+                    ],
+                    "executable": false
+                },
+                "assets/scss/back/back.scss": {
+                    "contents": [
+                        "@import '../../../vendor/tigris/core-bundle/assets/scss/back/back.scss';\n"
+                    ],
+                    "executable": false
+                },
+                "src/Entity/User.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "namespace App\\Entity;",
+                        "",
+                        "use Doctrine\\ORM\\Mapping as ORM;",
+                        "use Tigris\\CoreBundle\\Entity\\User as BaseUser;",
+                        "",
+                        "/**",
+                        " * @ORM\\Entity()",
+                        " * @ORM\\Table(name=\"user\")",
+                        " */",
+                        "class User extends BaseUser",
+                        "{",
+                        "}"
                     ],
                     "executable": false
                 }
                 
             },
-            "ref": "2b1df7e2313db1ab49424b241da0802e961efa9a"
+            "ref": "1d52b3792deb3994038e801ba4543bd5f661933f"
         }
     }
 }
