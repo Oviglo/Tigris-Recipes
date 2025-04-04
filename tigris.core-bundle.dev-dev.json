@@ -25,9 +25,16 @@
                         "content": "    .addEntry('back', './assets/back.js')"
                     },
                     {
-                        "file": "%CONFIG_DIR%/routes.yaml",
-                        "position": "bottom",
-                        "content": "tigris_core:\n    resource: \"@TigrisCoreBundle/config/routing.yaml\"\n"
+                        "file": "webpack.config.js",
+                        "position": "after_target",
+                        "target": "const Encore = require('@symfony/webpack-encore');",
+                        "content": "const FosRouting = require('fos-router/webpack/FosRouting');"
+                    },
+                    {
+                        "file": "webpack.config.js",
+                        "position": "after_target",
+                        "target": ".addEntry('app', './assets/app.js')",
+                        "content": "    .addPlugin(new FosRouting())"
                     },
                     {
                         "file": "%CONFIG_DIR%/packages/security.yaml",
@@ -48,10 +55,22 @@
                         "content": "    role_hierarchy:\n        ROLE_ADMIN: [ROLE_USER]\n        ROLE_SUPER_ADMIN: [ROLE_ADMIN]\n"
                     },
                     {
-                        "file": "%CONFIG_DIR%/packages/api_platform/yaml",
+                        "file": "%CONFIG_DIR%/packages/api_platform.yaml",
                         "position": "after_target",
                         "target": "defaults:",
                         "content": "        pagination_items_per_page: 30\n        pagination_client_items_per_page: true\n        collection_pagination_maximum_page_size: 100\n"
+                    },
+                    {
+                        "file": "%CONFIG_DIR%/packages/doctrine.yaml",
+                        "position": "after_target",
+                        "target": "orm:",
+                        "content": "        resolve_target_entities:\n            Tigris\\CoreBundle\\Entity\\Model\\User: App\\Entity\\User"
+                    },
+                    {
+                        "file": "%CONFIG_DIR%/packages/stof_doctrine_extensions.yaml",
+                        "position": "after_target",
+                        "target": "default_locale: en_US",
+                        "content": "    orm:\n        default:\n            sluggable: true\n            timestampable: true\n            tree: true\n"
                     }
                 ]
             },
@@ -90,7 +109,8 @@
                 "assets/back.js": {
                     "contents": [
                         "import './scss/back/back.scss';\n",
-                        "import '../vendor/tigris/core-bundle/assets/ts/back/back.ts';\n"
+                        "import '../vendor/tigris/core-bundle/assets/ts/back/back.ts';\n",
+                        "import './bootstrap.js';\n"
                     ],
                     "executable": false
                 },
@@ -116,6 +136,20 @@
                         "class User extends BaseUser",
                         "{",
                         "}"
+                    ],
+                    "executable": false
+                },
+                "config/packages/fos_js_routing.yaml": {
+                    "contents": [
+                        "fos_js_routing:\n",
+                        "resource: \"@FOSJsRoutingBundle/Resources/config/routing/routing-sf4.xml\"\n"
+                    ],
+                    "executable": false
+                },
+                "config/routes/tigris_core.yaml": {
+                    "contents": [
+                        "tigris_core:\n",
+                        "    resource: \"@TigrisCoreBundle/config/routing.yaml\"\n"
                     ],
                     "executable": false
                 }
