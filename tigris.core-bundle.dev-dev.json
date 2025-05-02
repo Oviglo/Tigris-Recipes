@@ -16,7 +16,7 @@
                         "file": "webpack.config.js",
                         "position": "after_target",
                         "target": ".splitEntryChunks()",
-                        "content": "    .enableSassLoader()\n    .enableTypeScriptLoader(function(tsConfig) {\n        tsConfig.transpileOnly = true;\n    })\n    .enableVueLoader()"
+                        "content": "    .enableSassLoader()\n    .enableTypeScriptLoader(function(tsConfig) {\n        tsConfig.transpileOnly = true;\n    })\n    .enableVueLoader()\n    .enablePostCssLoader()\n"
                     },
                     {
                         "file": "webpack.config.js",
@@ -108,15 +108,21 @@
                 },
                 "assets/back.js": {
                     "contents": [
-                        "import './scss/back/back.scss';\n",
+                        "import './css/back/back.css';\n",
                         "import '../vendor/tigris/core-bundle/assets/ts/back/back.ts';\n",
                         "import './bootstrap.js';\n"
                     ],
                     "executable": false
                 },
-                "assets/scss/back/back.scss": {
+                "assets/css/back/back.css": {
                     "contents": [
-                        "@import '../../../vendor/tigris/core-bundle/assets/scss/back/back.scss';\n"
+                        "@import 'tailwindcss';\n",
+                        "@import \"@awesome.me/kit-da05230ba8/icons/css/fontawesome.css\";\n",
+                        "@import \"@awesome.me/kit-da05230ba8/icons/css/light.css\";\n",
+                        "@import '../../../vendor/tigris/core-bundle/assets/css/back/back.css';\n",
+                        "@plugin 'daisyui' {\n",
+                        "    themes: corporate --default;\n",
+                        "};\n"
                     ],
                     "executable": false
                 },
@@ -152,10 +158,26 @@
                         "    resource: \"@TigrisCoreBundle/config/routing.yaml\"\n"
                     ],
                     "executable": false
+                },
+                "postcss.config.mjs": {
+                    "contents": [
+                        "module.exports = {\n",
+                        "    plugins: {\n",
+                        "        'postcss-import': {},\n",
+                        "        'postcss-url': {},\n",
+                        "        'postcss-easy-import': {},\n",
+                        "        '@tailwindcss/postcss': {},\n",
+                        "        '@tailwindcss/nesting': {}\n",
+                        "    },\n",
+                        "    tailwindcss: {},\n",
+                        "    autoprefixer: {}\n",
+                        "}"
+                    ],
+                    "executable": false
                 }
                 
             },
-            "ref": "1d52b3792deb3994038e801ba4543bd5f661933f"
+            "ref": "1d52b3792deb3994438e801ba4543bd5f661933f"
         }
     }
 }

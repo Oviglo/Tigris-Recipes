@@ -1,0 +1,19 @@
+{
+    "manifests": {
+        "tigris/content-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Tigris\\ContentBundle\\TigrisContentBundle": ["all"]
+                },
+                "add-lines": [
+                    {
+                        "file": "assets/back.js",
+                        "position": "end",
+                        "content": "import '../vendor/tigris/content-bundle/assets/ts/back/back.ts';\n"
+                    }
+                ]
+            },
+            "ref": "1d52b3792deb3994438e851ba4543bd5f661933f"
+        }
+    }
+}
