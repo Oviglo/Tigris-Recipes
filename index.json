@@ -2,6 +2,12 @@
     "recipes": {
         "tigris/core-bundle": [
             "dev-dev"
+        ],
+        "tigris/content-bundle": [
+            "dev-dev"
+        ],
+        "tigris/contact-bundle": [
+            "dev-dev"
         ]
     },
     "branch": "dev",
