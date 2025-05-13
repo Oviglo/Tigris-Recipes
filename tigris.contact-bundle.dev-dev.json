@@ -1,15 +1,15 @@
 {
     "manifests": {
-        "tigris/content-bundle": {
+        "tigris/contact-bundle": {
             "manifest": {
                 "bundles": {
-                    "Tigris\\ContentBundle\\TigrisContentBundle": ["all"]
+                    "Tigris\\ContactBundle\\TigrisContactBundle": ["all"]
                 },
                 "add-lines": [
                     {
                         "file": "assets/back.js",
                         "position": "end",
-                        "content": "import '../vendor/tigris/content-bundle/assets/ts/back/back.ts';\n"
+                        "content": "import '../vendor/tigris/contact-bundle/assets/ts/back/back.ts';\n"
                     }
                 ],
                 "copy-from-recipe": {
@@ -17,15 +17,15 @@
                 }
             },
             "files": {
-                "config/routes/tigris_content.yaml": {
+                "config/routes/tigris_contact.yaml": {
                     "contents": [
-                        "tigris_content:\n",
-                        "    resource: \"@TigrisContentBundle/config/routing.yaml\"\n"
+                        "tigris_contact:\n",
+                        "    resource: \"@TigrisContactBundle/config/routing.yaml\"\n"
                     ],
                     "executable": false
                 }
             },
-            "ref": "4d978a6df6db1f26b2467170353fc9c668a6d8a4"
+            "ref": "d111da5e3cd24c65fe7df72a6cb9b2d8edc1c571"
         }
     }
 }
